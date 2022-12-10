@@ -1,0 +1,24 @@
+import os
+import sys
+
+def scan_computer():
+  # Get a list of all files and directories on the computer
+  file_list = os.listdir(path='/')
+  
+  # Scan each file and directory for malicious activity
+  for file in file_list:
+    if is_malicious(file):
+      print(f'{file} may be malicious!')
+    else:
+      print(f'{file} is safe.')
+
+def is_malicious(file):
+  # Check the file against a list of known malicious files
+  malicious_files = ['virus.exe', 'trojan.exe', 'spyware.exe']
+  if file in malicious_files:
+    return True
+  else:
+    return False
+
+if __name__ == '__main__':
+  scan_computer()
